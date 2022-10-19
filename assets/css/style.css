@@ -1,0 +1,15 @@
+.btn-share {
+	margin: 20px 0;
+}
+
+.well {
+	margin-bottom: 20px;
+}
+
+code {
+	white-space: pre-wrap;
+}
+
+#btn_cadastro {
+    float: right !important;
+}
