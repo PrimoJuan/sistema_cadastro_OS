@@ -1,0 +1,21 @@
+Table Clientes
+CREATE TABLE public.cliente (cliente_id SERIAL PRIMARY KEY, nome CHARACTER(45) COLLATE pg_catalog."default", cpf CHARACTER VARYING(30) COLLATE pg_catalog."default" NOT NULL, numero CHARACTER VARYING(60) COLLATE pg_catalog."default", endereco CHARACTER VARYING(100) COLLATE pg_catalog."default")
+
+CREATE TABLE "produto" (
+	"id_produto" SERIAL NOT NULL,
+	"descricao" CHARACTER VARYING(100) NOT NULL,
+	"codigo" INTEGER NOT NULL,
+	"ativo" INTEGER NULL DEFAULT '0',
+	PRIMARY KEY ("id_produto")
+)
+;
+
+CREATE TABLE "ordem" (
+	"id_ordem" SERIAL NOT NULL,
+	"data_abertura" DATE NULL,
+	"nome_consumidor" VARCHAR(255) NOT NULL,
+	"cpf_consumidor" VARCHAR NOT NULL,
+	"finalizado" INTEGER NOT NULL DEFAULT '0',
+	PRIMARY KEY ("id_ordem")
+)
+;
