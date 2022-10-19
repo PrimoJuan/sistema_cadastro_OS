@@ -10,15 +10,15 @@
 			</div>
 			<div class="form-group">
 				<label for="cpf">CPF</label>
-				<input type="text" name="cpf"  min="11" max="11" class="form-control" id="cpf" required >
+				<input type="number" name="cpf" class="form-control" id="cpf" required >
 			</div>
 			<div class="form-group">
 				<label for="endereco">Endereço</label>
-				<textarea name="endereco" class="form-control" id="endereco" required ></textarea>
+				<input type="text" name="endereco" class="form-control" id="endereco" required ></textarea>
 			</div>
 			<div class="form-group">
 				<label for="numero">Número</label>
-				<textarea name="numero" class="form-control" id="numero" required ></textarea>
+				<input  type="number" name="numero" class="form-control" id="numero" required ></textarea>
 			</div>
 			<input class="btn btn-primary" name="submit" type="submit" value="Adicionar" />
 			<a class="btn btn-danger"  href="<?php echo ROOT_PATH; ?>clientes">Cancelar</a>

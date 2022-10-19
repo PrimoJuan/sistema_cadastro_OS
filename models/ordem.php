@@ -35,9 +35,9 @@ class ordemModel extends Model{
 		return $rows;
 	}
 
-	public function insertCliente($nome = '', $cpf = '', $endereco = '', $numero =''){
+	public function insertCliente($nome = '', $cpf = ''){
         $sql = "INSERT INTO cliente (nome, cpf, numero, endereco)
-				VALUES ('".$nome."', '".$cpf."', '".$endereco."', '".$numero."');";
+				VALUES ('".$nome."', '".$cpf."', NULL, '');";
 		$id = $this->runAndGetId($sql);
         return $id;
 	}
@@ -48,7 +48,7 @@ class ordemModel extends Model{
 			$cpf_consumidor = $id_cliente['cpf'];
 			$nome_consumidor = $id_cliente['nome'];
 		}else{
-			$id_cliente = $this->insertCliente($nome_consumidor, $cpf_consumidor, '', '');		
+			$id_cliente = $this->insertCliente($nome_consumidor, $cpf_consumidor);		
 		}
 
         $sql = "INSERT INTO ordem (numero_ordem, data_abertura, cpf_consumidor, nome_consumidor, produto)

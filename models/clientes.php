@@ -14,8 +14,8 @@ class clientesModel extends Model{
 	}
 
 	public function add($nome = '', $cpf = '', $endereco = '', $numero =''){
-        $sql = "INSERT INTO cliente (nome, cpf, numero, endereco)
-				VALUES ('".$nome."', '".$cpf."', '".$endereco."', '".$numero."');";
+        $sql = "INSERT INTO cliente (nome, cpf, endereco, numero)
+				VALUES ('".$nome."', '".$cpf."', '".$endereco."', ".$numero.");";
 		$id = $this->runAndGetId($sql);
         return $id;
 	}
