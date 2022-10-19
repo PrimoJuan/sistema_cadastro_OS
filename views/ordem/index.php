@@ -57,7 +57,7 @@
 		url: '<?php echo ROOT_PATH; ?>/ordem/finalizar/' + id,
 		success: function(data) {
 			if(data == 'true'){
-				alert('Ordem finalizada com sucesso!');
+				alert('Ordem de Serviço alterada com sucesso!');
 				location.reload();
 			}else{
 				alert('Erro ao finalizar ordem!');
