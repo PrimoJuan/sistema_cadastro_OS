@@ -9,7 +9,6 @@ class Ordem extends Controller{
 	}
 
 	protected function add(){
-        print_r($_REQUEST);
         $modelOrdem = new ordemModel();
         if(!empty($_REQUEST['submit'])){
             $resultado = $modelOrdem->add(      $_REQUEST['numero_ordem'],
@@ -31,10 +30,10 @@ class Ordem extends Controller{
         $modelOrdem = new ordemModel();
         if(!empty($_REQUEST['submit'])){
             $resultado = $modelOrdem->edit(     $_REQUEST['id'],
-                                                $_REQUEST['numero_ordem'],
-                                                $_REQUEST['data_abertura'], 
+                                                $_REQUEST['data_abertura'],
+                                                $_REQUEST['nome_consumidor'], 
                                                 $_REQUEST['cpf_consumidor'],
-                                                $_REQUEST['nome_consumidor'],
+                                                $_REQUEST['numero_ordem'],
                                                 $_REQUEST['produto']);
             if(!empty($resultado)){
                 Messages::setMsg('Ordem de Serviço Atualizada com Sucesso!', 'success');
@@ -42,8 +41,11 @@ class Ordem extends Controller{
                 Messages::setMsg('Erro ao Atualizar Ordem de Serviço!', 'error');
             }
         }
-        $cliente = $modelOrdem->getOrdembyId($_REQUEST['id']);
-        $this->returnView('edit', true, $cliente);
+        
+        $dados = [];
+        $dados['produtos'] = $modelOrdem->getProdutos();
+        $dados['ordem'] = $modelOrdem->getOrdembyId($_REQUEST['id']);
+        $this->returnView('edit', true, $dados);
 	}
 
 	protected function delete(){
@@ -60,16 +62,8 @@ class Ordem extends Controller{
     protected function finalizar(){
         $modelOrdem = new ordemModel();
         $resultado = $modelOrdem->finalizar($_REQUEST['id']);
-        $array = array(
-                            "sucesso" => !empty($resultado)?'true':'false',
-                        );
-        return json_encode($array);
-        // if(!empty($resultado)){
-        //     Messages::setMsg('Ordem de Serviço excluída com Sucesso!', 'success');
-        // }else{
-        //     Messages::setMsg('Erro ao Excluir Ordem de Serviço!', 'error');
-        // }
-        //$this->returnView('index', true);
+        $retorno = !empty($resultado)?'true':'false';
+        echo $retorno;
 	}
 }
 ?>

@@ -34,8 +34,7 @@ abstract class Model{
 	public function runReturnRow($query=''){
 		$rows = $this->dbh->prepare($query);
 		$rows->execute();
-		$count = $rows->rowCount();
-		return $count;
+		return $rows->rowCount();;
 	}
 
 	public function bind($param, $value, $type = null){

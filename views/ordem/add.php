@@ -30,7 +30,7 @@
                 </select>
             </div>
 			<input class="btn btn-primary" name="submit" type="submit" value="Adicionar" />
-			<a class="btn btn-danger"  href="<?php echo ROOT_PATH; ?>clientes">Cancelar</a>
+			<a class="btn btn-danger"  href="<?php echo ROOT_PATH; ?>ordem">Cancelar</a>
 		</form>
 	</div>
 </div>
